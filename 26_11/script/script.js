@@ -27,6 +27,7 @@ function rerender() {
 		const count_p = document.createElement('p');
 		container.append(title_p, price_p, count_p);
 		products.append(container);
+		container.classList.add('card');
 		title_p.innerText = title;
 		price_p.innerText = price;
 		count_p.innerText = count;

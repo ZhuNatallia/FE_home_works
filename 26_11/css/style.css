@@ -7,10 +7,26 @@
 #form_product {
 	width: 700px;
 	margin: 0 auto;
-    margin-top: 30px;
+	margin-top: 30px;
 	padding: 20px 50px;
 	display: flex;
 	flex-direction: column;
-	background-color: rgb(56, 156, 223);
+	background-color: rgb(43, 118, 169);
 	border-radius: 10px;
+}
+
+.products {
+    width: 800px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.card {
+	border: 2px solid black;
+    border-radius: 2px;
+	width: 250px;
+	height: 250px;
+    padding: 15px;
+    margin-top: 50px;
 }
