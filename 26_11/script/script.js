@@ -28,6 +28,9 @@ function rerender() {
 		container.append(title_p, price_p, count_p);
 		products.append(container);
 		container.classList.add('card');
+		title_p.classList.add('title_card');
+		price_p.classList.add('price_card');
+		count_p.classList.add('count_card');
 		title_p.innerText = title;
 		price_p.innerText = price;
 		count_p.innerText = count;
