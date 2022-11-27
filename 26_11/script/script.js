@@ -3,6 +3,7 @@
 
 const form_product = document.querySelector('#form_product');
 const products = document.querySelector('.products');
+const result = document.querySelector('.result');
 const data = [];
 
 form_product.addEventListener('submit', (event) => {
@@ -19,6 +20,7 @@ form_product.addEventListener('submit', (event) => {
 
 function rerender() {
 	products.innerText = '';
+	result.innerText = '';
 	data.forEach((product) => {
 		const { title, price, count } = product;
 		const container = document.createElement('div');
@@ -27,6 +29,11 @@ function rerender() {
 		const count_p = document.createElement('p');
 		container.append(title_p, price_p, count_p);
 		products.append(container);
+		const result_container = document.createElement('div');
+		const result_sum = document.createElement('p');
+		const result_count = document.createElement('p');
+		result_container.append(result_sum, result_count);
+		result.append(result_container);
 		container.classList.add('card');
 		title_p.classList.add('title_card');
 		price_p.classList.add('price_card');
@@ -34,5 +41,7 @@ function rerender() {
 		title_p.innerText = title;
 		price_p.innerText = price;
 		count_p.innerText = count;
+		result_sum.innerText = `Общая стоимость: ${price * count}`;
+		result_count.innerText = `Общее количество: ${count}`;
 	});
 }
