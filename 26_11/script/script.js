@@ -40,7 +40,7 @@ function rerender() {
 		count_p.classList.add('count_card');
 		title_p.innerText = title;
 		price_p.innerText = price;
-		count_p.innerText = count;
+		count_p.innerText = `${price} x ${count} = ${price * count}`;
 		result_sum.innerText = `Общая стоимость: ${price * count}`;
 		result_count.innerText = `Общее количество: ${count}`;
 	});
