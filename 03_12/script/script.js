@@ -4,12 +4,9 @@
 
 const feedback = document.querySelector('.feedback');
 const textareaContent = document.querySelector('.textarea');
+
+textareaContent.innerText = '';
 let content;
-/* if (localStorage.getItem('text_content')) {
-	textareaContent.text = localStorage.getItem('text_content');
-} else {
-	textareaContent.text = '';
-} */
 
 textareaContent.addEventListener('input', (e) => {
 	let content = e.target.value;
@@ -17,6 +14,7 @@ textareaContent.addEventListener('input', (e) => {
 	console.log(content);
 });
 
-/* if (textareaContent.innerText.value === '') {
-    
-} */
+if (localStorage.getItem('text_content')) {
+	textareaContent.innerText = localStorage.getItem('text_content');
+}
+
