@@ -11,7 +11,6 @@ let content;
 textareaContent.addEventListener('input', (e) => {
 	let content = e.target.value;
 	localStorage.setItem('text_content', content);
-	console.log(content);
 });
 
 if (localStorage.getItem('text_content')) {
