@@ -9,8 +9,8 @@ const data = [];
 form_product.addEventListener('submit', (event) => {
 	event.preventDefault();
 	const title = form_product.title.value;
-	const price = form_product.price.value;
-	const count = form_product.count.value;
+	const price = +form_product.price.value;
+	const count = +form_product.count.value;
 	data.push({ title, price, count });
 	form_product.title.value = '';
 	form_product.price.value = '';
@@ -29,11 +29,6 @@ function rerender() {
 		const count_p = document.createElement('p');
 		container.append(title_p, price_p, count_p);
 		products.append(container);
-		const result_container = document.createElement('div');
-		const result_sum = document.createElement('p');
-		const result_count = document.createElement('p');
-		result_container.append(result_sum, result_count);
-		result.append(result_container);
 		container.classList.add('card');
 		title_p.classList.add('title_card');
 		price_p.classList.add('price_card');
@@ -41,7 +36,19 @@ function rerender() {
 		title_p.innerText = title;
 		price_p.innerText = price;
 		count_p.innerText = `${price} x ${count} = ${price * count}`;
-		result_sum.innerText = `Общая стоимость: ${price * count}`;
-		result_count.innerText = `Общее количество: ${count}`;
 	});
+	const result_container = document.createElement('div');
+	const result_sum = document.createElement('p');
+	const result_count = document.createElement('p');
+	result_container.append(result_sum, result_count);
+	result.append(result_container);
+	const total_sum = data.reduce((prev, item) => {
+		return prev + item.count * item.price;
+	}, 0);
+	const total_count = data.reduce((prev, item) => {
+		return prev + item.count;
+	}, 0);
+	result_sum.innerText = `Общая стоимость: ${total_sum}`;
+	result_count.innerText = `Общее количество: ${total_count}`;
 }
+rerender();
